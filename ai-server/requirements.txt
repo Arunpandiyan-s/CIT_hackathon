@@ -1,0 +1,39 @@
+# Build tooling (needed for some source distributions like openai-whisper)
+# NOTE: openai-whisper currently expects pkg_resources (provided by setuptools<81).
+setuptools<81
+wheel
+
+# API framework
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+python-multipart==0.0.9
+
+# AI — Speech Recognition
+openai-whisper==20231117
+
+# AI — Translation (NLLB-200)
+transformers==4.41.2
+sentencepiece==0.2.0
+torch>=2.3.1
+
+# AI — Embeddings (Phase 2+)
+sentence-transformers==3.0.1
+
+# Vector DB (Phase 2+)
+# NOTE: On Windows + Python 3.12+, chromadb pulls chroma-hnswlib which may require
+# Microsoft C++ Build Tools to compile. Keep it enabled for Python <3.12 (or use
+# a Python 3.11 env) unless you have a C++ toolchain installed.
+chromadb==0.5.3; python_version < "3.12"
+
+# PDF extraction
+pdfplumber==0.11.0
+
+# Image OCR
+Pillow==10.3.0
+pytesseract==0.3.10
+
+# HTTP (Ollama calls)
+requests==2.32.3
+
+# Data validation
+pydantic==2.7.3

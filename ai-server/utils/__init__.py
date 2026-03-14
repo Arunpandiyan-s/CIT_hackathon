@@ -1,0 +1,1 @@
+# Utility helpers — extend for Phase 2+ (logging, auth, formatting)
